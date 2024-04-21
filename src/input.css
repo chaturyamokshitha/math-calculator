@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.but {
+    @apply text-xl bg-gray-600 rounded-md shadow-2xl hover:bg-gray-300;
+}

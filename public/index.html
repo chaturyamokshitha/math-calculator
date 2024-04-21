@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-300">
+    <div class="flex justify-center">
+        <div class="grid grid-cols-4 gap-2 p-2 m-1 mt-32 bg-gray-500 rounded-md w-96 h-96">
+            <input type="text" class="col-span-4 text-2xl text-right text-black rounded-md" name="display" id="display">
+            <button class="but" id="clear">AC</button>
+            <button class="but" id="ones">DE</button>
+            <button class="but" id="point">.</button>
+            <button class="but" id="divi">/</button>
+            <button class="but" id="n7" value="7">7</button>
+            <button class="but" id="n8">8</button>
+            <button class="but" id="n9">9</button>
+            <button class="but" id="mul">*</button>
+            <button class="but" id="n4">4</button>
+            <button class="but" id="n5">5</button>
+            <button class="but" id="n6">6</button>
+            <button class="but" id="sub">-</button>
+            <button class="but" id="n1">1</button>
+            <button class="but" id="n2">2</button>
+            <button class="but" id="n3">3</button>
+            <button class="but" id="add">+</button>
+            <button class="but" id="double0">00</button>
+            <button class="but" id="n0">0</button>
+            <button class="col-span-2 but" id="ans">=</button>
+
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const display = document.getElementById('display');
+            const buttons = document.querySelectorAll('button');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    if (this.id === 'clear') {
+                        display.value = '';
+                    } else if (this.id === 'ans') {
+                        try {
+                            display.value = eval(display.value);
+                        } catch (error) {
+                            display.value = 'Error';
+                        }
+                    }
+                    else if (this.id === 'ones') {
+                        let value = display.value.toString();
+                        value = value.slice(0, -1);
+                        display.value = value;
+                    } else {
+                        display.value += this.textContent;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
